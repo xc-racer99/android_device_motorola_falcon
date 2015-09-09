@@ -19,14 +19,20 @@
   },
   {
     "remote": "github",
-    "repository": "Thecrazyskull/android_device_motorola_msm8226-common",
+    "repository": "xc-racer99/android_device_motorola_msm8226-common",
     "target_path": "device/motorola/msm8226-common",
     "revision": "android-5.1"
   },
   {
     "remote": "github",
-    "repository": "Thecrazyskull/android_kernel_motorola_msm8226",
+    "repository": "xc-racer99/android_kernel_motorola_msm8226",
     "target_path": "kernel/motorola/msm8226",
+    "revision": "android-5.1"
+  },
+  {
+    "remote": "github",
+    "repository": "xc-racer99/android_system_qcom",
+    "target_path": "system/qcom",
     "revision": "android-5.1"
   },
   {
