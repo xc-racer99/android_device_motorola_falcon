@@ -83,7 +83,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
             property_set("ro.build.product", "falcon_umts");
             property_set("ro.mot.build.customerid", "retusa_glb");
             property_set("ro.telephony.default_network", "0");
-            property_set("persist.radio.multisim.config", "");
+            property_set("persist.radio.multisim.config", "dsds");
         }
     } else if (ISMATCH(radio, "0x3")) {
         /* cdma */
