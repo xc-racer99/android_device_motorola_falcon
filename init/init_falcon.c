@@ -83,7 +83,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
             property_set("ro.build.product", "falcon_umts");
             property_set("ro.mot.build.customerid", "retusa_glb");
             property_set("ro.telephony.default_network", "0");
-            property_set("persist.radio.multisim.config", "dsds");
+            property_set("persist.radio.multisim.config", "");
         }
     } else if (ISMATCH(radio, "0x3")) {
         /* cdma */
@@ -130,7 +130,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.build.product", "falcon_umtsds");
         property_set("ro.mot.build.customerid", "RETBR");
         property_set("ro.telephony.default_network", "0,1");
-        property_set("persist.radio.multisim.config", "");
+        property_set("persist.radio.multisim.config", "dsds");
         property_set("persist.radio.dont_use_dsd", "true");
         property_set("persist.radio.plmn_name_cmp", "1");
     } else if (ISMATCH(radio, "0x6")) {
