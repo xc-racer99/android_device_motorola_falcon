@@ -36,6 +36,42 @@
     "revision": "android-5.1"
   },
   {
+    "remote": "github",
+    "repository": "ant-wireless/Android_build",
+    "target_path": "external/ant-wireless/build",
+    "revision": "master"
+  },
+  {
+    "remote": "github",
+    "repository": "ant-wireless/Android_antradio-library",
+    "target_path": "external/ant-wireless/antradio-library",
+    "revision": "master"
+  },
+  {
+    "remote": "github",
+    "repository": "ant-wireless/Linux_ant-hal",
+    "target_path": "external/ant-wireless/ant-hal",
+    "revision": "master"
+  },
+  {
+    "remote": "github",
+    "repository": "ant-wireless/Android_ANTHALService",
+    "target_path": "external/ant-wireless/ANTHALService",
+    "revision": "master"
+  },
+  {
+    "remote": "github",
+    "repository": "ant-wireless/Android_ANTRadioService",
+    "target_path": "external/ant-wireless/ANTRadioService",
+    "revision": "master"
+  },
+  {
+    "remote": "github",
+    "repository": "ant-wireless/Android_ANTPlusPluginsService",
+    "target_path": "external/ant-wireless/Android_ANTPlusPluginsService",
+    "revision": "master"
+  },
+  {
     "remote": "omnirom",
     "repository": "android_frameworks_av",
     "target_path": "frameworks/av-caf",
