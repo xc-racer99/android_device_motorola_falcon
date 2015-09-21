@@ -46,7 +46,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(INSTAL
 LZMA_RECO := $(PRODUCT_OUT)/ramdisk-recovery-lzma.img
 
 $(LZMA_RECO): $(recovery_ramdisk)
-	gunzip -f < $(recovery_ramdisk) | lzma -e > $@
+	gunzip -f < $(recovery_ramdisk) | lzma > $@
 
 ## Overload recoveryimg generation: Same as the original, + --dt arg
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
