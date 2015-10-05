@@ -20,9 +20,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from our omni product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-# Pull in GSM-specific stuff such as APNs
-$(call inherit-product, vendor/omni/config/gsm.mk)
-
 # Inherit from falcon device
 $(call inherit-product, device/motorola/falcon/device.mk)
 

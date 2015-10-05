@@ -24,10 +24,19 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
 
+# GSM APN list
+# Since this is both a CDMA and a GSM device, we need APNs for both so use our own copy
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.target.rc
+
+# SIM Toolkit
+PRODUCT_PACKAGES += \
+    Stk
 
 # Wifi
 PRODUCT_COPY_FILES += \
