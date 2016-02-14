@@ -14,15 +14,25 @@
 # limitations under the License.
 #
 
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
+# Bootanimation size
+TARGET_BOOTANIMATION_SIZE := 720x407
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit from falcon device
 $(call inherit-product, device/motorola/falcon/device.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := falcon
-PRODUCT_NAME := full_falcon
+PRODUCT_NAME := omni_falcon
+PRODUCT_RELEASE_NAME := MOTO G
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := falcon
 PRODUCT_MANUFACTURER := motorola
