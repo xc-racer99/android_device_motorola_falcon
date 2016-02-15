@@ -1,0 +1,49 @@
+From 21e6004bfe0dee75b63415014f3fef8a98ec973f Mon Sep 17 00:00:00 2001
+From: Eric Laurent <elaurent@google.com>
+Date: Thu, 23 Oct 2014 14:42:59 -0700
+Subject: [PATCH] compress offload: use new sample rate representation.
+
+Pass directly the sample rate value to struct snd_codec
+instead of the ALSA enum.
+
+Change-Id: I7ce6b9833336afa82c28fa4bfab769cf31e0d919
+---
+ hal/Android.mk | 4 ++++
+ hal/audio_hw.c | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/hal/Android.mk b/hal/Android.mk
+index ab5b7a5..9df019e 100644
+--- a/hal/Android.mk
++++ b/hal/Android.mk
+@@ -110,6 +110,10 @@ ifeq ($(strip $(AUDIO_FEATURE_ENABLED_COMPRESS_CAPTURE)),true)
+     LOCAL_SRC_FILES += audio_extn/compress_capture.c
+ endif
+ 
++ifeq ($(strip $(AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE)),true)
++    LOCAL_CFLAGS += -DNEW_SAMPLE_RATE_ENABLED
++endif
++
+ ifeq ($(strip $(DOLBY_DDP)),true)
+     LOCAL_CFLAGS += -DDS1_DOLBY_DDP_ENABLED
+     LOCAL_SRC_FILES += audio_extn/dolby.c
+diff --git a/hal/audio_hw.c b/hal/audio_hw.c
+index 23aa275..d974145 100644
+--- a/hal/audio_hw.c
++++ b/hal/audio_hw.c
+@@ -2441,8 +2441,12 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
+                        platform_get_compress_offload_buffer_size(&config->offload_info);
+         }
+         out->compr_config.fragments = COMPRESS_OFFLOAD_NUM_FRAGMENTS;
++#ifdef NEW_SAMPLE_RATE_ENABLED
++        out->compr_config.codec->sample_rate = config->offload_info.sample_rate;
++#else
+         out->compr_config.codec->sample_rate =
+                     compress_get_alsa_rate(config->offload_info.sample_rate);
++#endif
+         out->compr_config.codec->bit_rate =
+                     config->offload_info.bit_rate;
+         out->compr_config.codec->ch_in =
+-- 
+2.1.4
+
