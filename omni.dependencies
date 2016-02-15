@@ -54,6 +54,12 @@
     "revision": "android-6.0-caf"
   },
   {
+    "remote": "github",
+    "repository": "xc-racer99/android_system_qcom",
+    "target_path": "system/qcom",
+    "revision": "android-6.0"
+  },
+  {
     "remote": "omnirom",
     "repository": "vendor_qcom_opensource_display-frameworks",
     "target_path": "vendor/qcom/opensource/display-frameworks",
