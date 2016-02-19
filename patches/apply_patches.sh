@@ -1,5 +1,5 @@
 #!/bin/bash
-# Shell script to apply patches necessary to build for Galaxy S 4G devices
+# Shell script to apply patches necessary to build for Falcon devices
 
 pushd $(dirname "${0}") > /dev/null
 SCRIPTPATH=$(pwd -L)
@@ -16,6 +16,9 @@ ROOT_LOCATION=../../../../
 
 PATCHFILE[0]="android_hardware_qcom_audio-caf-msm8974.patch"
 DIRECTORY[0]="hardware/qcom/audio-caf-msm8974"
+
+PATCHFILE[1]="android_build.patch"
+DIRECTORY[1]="build"
 
 
 ARRAY_LENGTH=${#PATCHFILE[@]}

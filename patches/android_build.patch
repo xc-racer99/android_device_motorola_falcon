@@ -1,0 +1,28 @@
+From 3f0a2a7141ca902d84115ca1bee3bc0e3e680699 Mon Sep 17 00:00:00 2001
+From: xc-racer99 <xc-racer2@live.ca>
+Date: Fri, 19 Feb 2016 09:21:27 -0800
+Subject: [PATCH] build: Fix for unified devies
+
+Unified devices don't set build.fingerprint so don't try to read it
+
+Change-Id: I54ae974ded88a98e1b792c08bf14bc07eb655b99
+---
+ tools/releasetools/ota_from_target_files.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/tools/releasetools/ota_from_target_files.py b/tools/releasetools/ota_from_target_files.py
+index f14a941..8b12c7e 100755
+--- a/tools/releasetools/ota_from_target_files.py
++++ b/tools/releasetools/ota_from_target_files.py
+@@ -474,6 +474,8 @@ def GetOemProperty(name, oem_props, oem_dict, info_dict):
+ 
+ 
+ def CalculateFingerprint(oem_props, oem_dict, info_dict):
++  if OPTIONS.override_prop:
++    return GetBuildProp("ro.build.date.utc", info_dict)
+   if oem_props is None:
+     return GetBuildProp("ro.build.fingerprint", info_dict)
+   return "%s/%s/%s:%s" % (
+-- 
+2.1.4
+
