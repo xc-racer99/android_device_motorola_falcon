@@ -1,0 +1,30 @@
+From 504233b69c7f9377f95be382993112451edf9c68 Mon Sep 17 00:00:00 2001
+From: xc-racer99 <xc-racer2@live.ca>
+Date: Sun, 21 Feb 2016 18:14:22 -0800
+Subject: [PATCH] core: Detect moto charger
+
+Allows booting to the charger on motorola devices which set the bootmode to mot-charger as opposed to charger
+
+Inspired by https://github.com/MotorolaMobilityLLC/system-core/commit/b02df6d9a60ffc3727e309281943d9733169f6c9
+
+Change-Id: I5190fcb44897f353a20dca0a3080313109dc610b
+---
+ init/init.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/init/init.cpp b/init/init.cpp
+index b332588..60efa6f 100644
+--- a/init/init.cpp
++++ b/init/init.cpp
+@@ -1101,7 +1101,7 @@ int main(int argc, char** argv) {
+ 
+     // Don't mount filesystems or start core system services in charger mode.
+     char bootmode[PROP_VALUE_MAX];
+-    if (property_get("ro.bootmode", bootmode) > 0 && strcmp(bootmode, "charger") == 0) {
++    if (property_get("ro.bootmode", bootmode) > 0 && (strcmp(bootmode, "charger") == 0 || strcmp(bootmode, "mot-charger")) == 0) {
+         action_for_each_trigger("charger", action_add_queue_tail);
+     } else {
+         action_for_each_trigger("late-init", action_add_queue_tail);
+-- 
+2.1.4
+
