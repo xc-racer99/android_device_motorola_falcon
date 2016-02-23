@@ -20,6 +20,12 @@ DIRECTORY[0]="hardware/qcom/audio-caf-msm8974"
 PATCHFILE[1]="android_build.patch"
 DIRECTORY[1]="build"
 
+PATCHFILE[2]="android_system_core.patch"
+DIRECTORY[2]="system/core"
+
+PATCHFILE[3]="android_packages_apps_FMRadio.patch"
+DIRECOTRY[3]="packages/apps/FMRadio"
+
 
 ARRAY_LENGTH=${#PATCHFILE[@]}
 COUNTER=0

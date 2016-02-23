@@ -1,0 +1,28 @@
+From 018bc41d0b0ead2411f5112e797bb17b875faffa Mon Sep 17 00:00:00 2001
+From: Ricardo Cerqueira <ricardo@cyngn.com>
+Date: Wed, 2 Dec 2015 10:37:05 +0000
+Subject: [PATCH] Disable libfmjni on QC hardware
+
+QCOM has its own implementation elsewhere
+
+Change-Id: Ie810369453e9a4c8f6c65b40bec6eef73dbe75fc
+---
+ jni/fmr/Android.mk | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/jni/fmr/Android.mk b/jni/fmr/Android.mk
+index 1700b4e..b685b68 100644
+--- a/jni/fmr/Android.mk
++++ b/jni/fmr/Android.mk
+@@ -31,5 +31,7 @@ LOCAL_SHARED_LIBRARIES := \
+     libmedia \
+ 
+ LOCAL_MODULE := libfmjni
+-include $(BUILD_SHARED_LIBRARY)
+ 
++ifneq ($(BOARD_USES_QCOM_HARDWARE),true)
++include $(BUILD_SHARED_LIBRARY)
++endif
+-- 
+2.1.4
+

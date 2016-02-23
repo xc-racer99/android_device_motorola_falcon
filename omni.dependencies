@@ -102,6 +102,12 @@
     "revision": "master"
   },
   {
+    "remote": "github",
+    "repository": "CyanogenMod/android_hardware_qcom_fm",
+    "target_path": "hardware/qcom/fm",
+    "revision": "cm-13.0"
+  },
+  {
     "remote": "omnirom",
     "repository": "vendor_qcom_opensource_display-frameworks",
     "target_path": "vendor/qcom/opensource/display-frameworks",
