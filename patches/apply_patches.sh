@@ -24,7 +24,7 @@ PATCHFILE[2]="android_system_core.patch"
 DIRECTORY[2]="system/core"
 
 PATCHFILE[3]="android_packages_apps_FMRadio.patch"
-DIRECOTRY[3]="packages/apps/FMRadio"
+DIRECTORY[3]="packages/apps/FMRadio"
 
 
 ARRAY_LENGTH=${#PATCHFILE[@]}
