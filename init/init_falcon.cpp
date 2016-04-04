@@ -95,7 +95,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_set("ro.product.model", "Moto G");
     if (ISMATCH(radio, "0x1")) {
-        FILE *fp = popen("/system/bin/blkid /dev/block/platform/msm_sdcc.1/by-name/userdata | /system/bin/cut -d'\"' -f4", "r");
+        FILE *fp = popen("/system/bin/blkid /dev/block/platform/msm_sdcc.1/by-name/userdata | /system/bin/toybox cut -d'\"' -f4", "r");
         fgets(fstype, sizeof(fstype), fp);
         pclose(fp);
         if (ISMATCH(fstype, "ext4")) {
