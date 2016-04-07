@@ -74,7 +74,7 @@
 	<ctl name="SLIM_0_RX_Voice Mixer CSVoice" value="0" />
 	<ctl name="Voice_Tx Mixer SLIM_0_TX_Voice" value="0" />
 	<ctl name="CLASS_H_DSM MUX" value="ZERO" />
-	<ctl name="EAR PA Gain" value="POS_0_DB" />
+	<ctl name="EAR PA Gain" value="POS_6_DB" />
 	<!-- fm -->
 	<ctl name="SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX" value="0" />
 	<ctl name="SLIMBUS_DL_HL Switch" value="0" />
@@ -375,7 +375,8 @@
 		<ctl name="RX1 MIX1 INP1" value="RX1" />
 		<ctl name="CLASS_H_DSM MUX" value="RX_HPHL" />
 		<ctl name="RDAC3 MUX" value="DEM2" />
-		<ctl name="EAR PA Gain" value="POS_0_DB" />
+		<ctl name="RX1 Digital Volume" value="92" />
+		<ctl name="EAR PA Gain" value="POS_6_DB" />
 		<ctl name="DAC1 Switch" value="1" />
 	</path>
 
