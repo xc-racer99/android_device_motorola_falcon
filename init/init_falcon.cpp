@@ -93,12 +93,13 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         return;
     property_get("ro.boot.radio", radio);
 
+    FILE *fp = popen("/system/bin/toybox blkid /dev/block/platform/msm_sdcc.1/by-name/userdata | /system/bin/toybox cut -d'\"' -f6", "r");
+    fgets(fstype, sizeof(fstype), fp);
+    pclose(fp);
+
     property_set("ro.product.model", "Moto G");
     if (ISMATCH(radio, "0x1")) {
-        FILE *fp = popen("/system/bin/blkid /dev/block/platform/msm_sdcc.1/by-name/userdata | /system/bin/toybox cut -d'\"' -f4", "r");
-        fgets(fstype, sizeof(fstype), fp);
-        pclose(fp);
-        if (ISMATCH(fstype, "ext4")) {
+        if (ISMATCH(fstype, "ext4\n")) {
             /* xt1032 GPE */
             property_set("ro.product.device", "falcon_gpe");
             property_set("ro.build.description", "falcon_gpe-user 5.1 LMY47M.M005 10 release-keys");
@@ -187,7 +188,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.mot.ignore_csim_appid", "true");
         property_set("telephony.lteOnCdmaDevice", "0");
     } else if (ISMATCH(radio, "0x5")) {
-        if (ISMATCH(fstype, "ext4")) {
+        if (ISMATCH(fstype, "ext4\n")) {
             /* xt1033 converted to GPE */
             property_set("ro.product.device", "falcon_gpe");
             property_set("ro.build.description", "falcon_gpe-user 5.1 LMY47M.M005 10 release-keys");
