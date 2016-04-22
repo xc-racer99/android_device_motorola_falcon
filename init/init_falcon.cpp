@@ -188,38 +188,17 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.mot.ignore_csim_appid", "true");
         property_set("telephony.lteOnCdmaDevice", "0");
     } else if (ISMATCH(radio, "0x5")) {
-        if (ISMATCH(fstype, "ext4\n")) {
-            /* xt1033 converted to GPE */
-            property_set("ro.product.device", "falcon_gpe");
-            property_set("ro.build.description", "falcon_gpe-user 5.1 LMY47M.M005 10 release-keys");
-            property_set("ro.build.fingerprint", "motorola/falcon_gpe/falcon_umts:5.1/LMY47M.M005/10:user/release-keys");
-            property_set("ro.build.product", "falcon_gpe");
-            property_set("ro.mot.build.customerid", "retusa_glb");
-            property_set("ro.telephony.default_network", "0");
-            property_set("persist.radio.multisim.config", "");
-        } else {
-            /* xt1033 */
-
-            /* Since Omni doesn't support msim right now, set the same props as a GPE-converted device for now
-            property_set("ro.product.device", "falcon_umtsds");
-            property_set("ro.build.description", "falcon_retbr_ds-user 5.1 LPB23.13-56 58 release-keys");
-            property_set("ro.build.fingerprint", "motorola/falcon_retbr_ds/falcon_umtsds:5.1/LPB23.13-56/58:user/release-keys");
-            property_set("ro.build.product", "falcon_umtsds");
-            property_set("ro.mot.build.customerid", "RETBR");
-            property_set("ro.telephony.default_network", "0,1");
-            property_set("ro.telephony.ril.config", "simactivation");
-            property_set("persist.radio.multisim.config", "dsds");
-            property_set("persist.radio.dont_use_dsd", "true");
-            property_set("persist.radio.plmn_name_cmp", "1"); */
-
-            property_set("ro.product.device", "falcon_gpe");
-            property_set("ro.build.description", "falcon_gpe-user 5.1 LMY47M.M005 10 release-keys");
-            property_set("ro.build.fingerprint", "motorola/falcon_gpe/falcon_umts:5.1/LMY47M.M005/10:user/release-keys");
-            property_set("ro.build.product", "falcon_gpe");
-            property_set("ro.mot.build.customerid", "retusa_glb");
-            property_set("ro.telephony.default_network", "0");
-            property_set("persist.radio.multisim.config", "");
-        }
+        /* xt1033 */
+        property_set("ro.product.device", "falcon_umtsds");
+        property_set("ro.build.description", "falcon_retbr_ds-user 5.1 LPB23.13-56 58 release-keys");
+        property_set("ro.build.fingerprint", "motorola/falcon_retbr_ds/falcon_umtsds:5.1/LPB23.13-56/58:user/release-keys");
+        property_set("ro.build.product", "falcon_umtsds");
+        property_set("ro.mot.build.customerid", "RETBR");
+        property_set("ro.telephony.default_network", "0,1");
+        property_set("ro.telephony.ril.config", "simactivation");
+        property_set("persist.radio.multisim.config", "dsds");
+        property_set("persist.radio.dont_use_dsd", "true");
+        property_set("persist.radio.plmn_name_cmp", "1");
     } else if (ISMATCH(radio, "0x6")) {
         /* xt1034 */
         property_set("ro.product.device", "falcon_umts");
