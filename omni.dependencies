@@ -60,8 +60,8 @@
     "revision": "android-6.0"
   },
   {
-    "remote": "github",
-    "repository": "xc-racer99/android_external_connectivity",
+    "remote": "omnirom",
+    "repository": "android_external_connectivity",
     "target_path": "external/connectivity",
     "revision": "android-6.0"
   },
